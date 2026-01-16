@@ -1,195 +1,220 @@
-/* Reset & base */
-body {
+/* Reset & Base */
+*,
+*::before,
+*::after {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
 body {
-  font-family: 'Segoe UI', sans-serif;
-  background-color: #121212;
-  color: #e0e0e0;
+  background-image: url("https://w0.peakpx.com/wallpaper/87/812/HD-wallpaper-anime-cityscape-polychromatic-sunset-rainbow-skyscrapers-anime.jpg");
+  background-attachment: fixed;
+  background-size: cover;
+  background-position: center;
+  font-family: Inter, sans-serif;
+  font-feature-settings: 'liga' 1, 'calt' 1;
+  min-height: 100vh;
   line-height: 1.6;
- 
+  overflow-x: hidden;
+  color: #ffffff;
+  transition: background 1s, color 0.5s;
+  position:center;
+  
 }
 
-a {
-  color: #90caf9;
-  text-decoration: none;
-  transition: color 0.3s ease;
+@supports (font-variation-settings: normal) {
+  body {
+    font-family: InterVariable, sans-serif;
+  }
 }
 
-a:hover {
-  color: #64b5f6;
+body::before {
+  content: "";
+  position: fixed;
+  top: 0; left: 0;
+  width: 100%; height: 100%;
+  background: rgba(0, 0, 0, 0.4);
+  backdrop-filter: blur(8px);
+  z-index: -1;
+  pointer-events: none;
 }
 
+/* Navbar */
 .navbar {
-  background: #1e1e1e;
+  background: rgba(28, 28, 28, 0.95);
   padding: 1rem 2rem;
   display: flex;
   justify-content: space-between;
   align-items: center;
-  animation: slideDown 0.6s ease-in-out;
-}
-
-@keyframes slideDown {
-  from {
-    opacity: 0;
-    transform: translateY(-20px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
+  position: sticky;
+  top: 0;
+  z-index: 100;
 }
 
 .logo {
-  font-size: 1.5rem;
+  display: flex;
+  text-align: center;
+  align-items: center;
+  font-size: 50px;
   font-weight: bold;
 }
 
-.navbar nav a {
-  margin-left: 1.5rem;
-  font-weight: 500;
-}
-
-.hero {
+/* Buttons */
+.btn, .smash {
+  display: inline-block;
   text-align: center;
-  padding: 4rem 2rem;
-  background: #212121;
-  animation: fadeIn 1.2s ease-in;
-}
-
-@keyframes fadeIn {
-  from {
-    opacity: 0;
-    transform: translateY(15px);
-  }
-  to {
-    opacity: 1;
-    transform: translateY(0);
-  }
-}
-
-.hero h1 {
-  font-size: 2.5rem;
-  margin-bottom: 1rem;
-}
-
-.hero p {
-  font-size: 1.2rem;
-  margin-bottom: 2rem;
-  color: #cccccc;
+  font-weight: 600;
+  border-radius: 6px;
+  transition: all 0.3s ease;
+  cursor: pointer;
 }
 
 .btn {
-  background: #2196f3;
-  color: white;
+  background: #364654;
+  color: #fff;
   padding: 0.75rem 1.5rem;
-  border: none;
-  border-radius: 4px;
-  font-weight: bold;
-  transition: background 0.3s ease, transform 0.2s ease;
+  text-decoration: none;
 }
 
 .btn:hover {
-  background: #1976d2;
-  transform: scale(1.05);
+  background: #001224;
+  transform: scale(1.1);
 }
 
-.upload-section,
-.dashboard {
-  padding: 3rem 2rem;
-  text-align: center;
-  animation: fadeIn 1s ease-in;
-}
-
-.upload-section input[type="url"] {
-  padding: 0.75rem;
-  width: 60%;
-  max-width: 400px;
-  margin-right: 1rem;
-  border: none;
-  border-radius: 4px;
-  background: #1e1e1e;
-  color: #e0e0e0;
-  transition: box-shadow 0.3s ease, transform 0.2s ease;
-}
-
-.upload-section input[type="url"]:focus {
-  box-shadow: 0 0 0 2px #2196f3;
-  transform: scale(1.02);
-  outline: none;
-}
-
-.upload-section button {
-  padding: 0.75rem 1.25rem;
-  border: none;
-  background: #03a9f4;
-  color: white;
-  border-radius: 4px;
-  cursor: pointer;
-  transition: background 0.3s ease, transform 0.2s ease;
-}
-
-.upload-section button:hover {
-  background: #0288d1;
-  transform: scale(1.05);
-}
-
-.footer {
-  text-align: center;
-  padding: 1rem;
-  background: #1e1e1e;
-  font-size: 0.9rem;
-  animation: fadeIn 2s ease-in;
-}
-
-
-
-/* CSS */
 .smash {
-  background-color: #111827;
-  border: 1px solid transparent;
-  border-radius: .75rem;
-  box-sizing: border-box;
-  color: #FFFFFF;
-  cursor: pointer;
-  flex: 0 0 auto;
-  font-family: "Inter var",ui-sans-serif,system-ui,-apple-system,system-ui,"Segoe UI",Roboto,"Helvetica Neue",Arial,"Noto Sans",sans-serif,"Apple Color Emoji","Segoe UI Emoji","Segoe UI Symbol","Noto Color Emoji";
+  background: #364654;
+  padding: 0.75rem 1.2rem;
+  margin: 0.3rem;
   font-size: 1.125rem;
-  font-weight: 600;
-  line-height: 1.5rem;
-  padding: .75rem 1.2rem;
-  text-align: center;
-  text-decoration: none #6B7280 solid;
-  text-decoration-thickness: auto;
-  transition-duration: .2s;
-  transition-property: background-color,border-color,color,fill,stroke;
-  transition-timing-function: cubic-bezier(.4, 0, 0.2, 1);
-  user-select: none;
-  -webkit-user-select: none;
-  touch-action: manipulation;
-  width: auto;
+  border: none;
+  outline: none;
+  color: #33204A;
 }
 
 .smash:hover {
-  background-color: #374151;
+  transform: scale(1.1);
+  background-color: #28013c;
+  
 }
 
-.smash:focus {
-  box-shadow: none;
-  outline: 2px solid transparent;
-  outline-offset: 2px;
+.smash a {
+  color: #dcacfb;
+  text-decoration: none;
+  font-family: Segoe UI;
+}
+.smash a:hover {
+  
+  text-decoration: none;
+  font-family: Segoe UI;
 }
 
-@media (min-width: 768px) {
-  .smash {
-    padding: .75rem 1.5rem;
-  }
+/* Sections & Reveal */
+.hero, .upload-section, .dashboard, .footer {
+  text-align: center;
+  padding: 3rem 2rem;
 }
-.Adobe{
- color:white;   
- font-size: 50px;   
 
+.reveal {
+  opacity: 0;
+  transform: translateY(20px);
+  transition: transform 0.6s cubic-bezier(0.2,0.8,0.2,1), opacity 0.6s ease;
+  will-change: transform, opacity;
+}
+
+.reveal.active {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+/* Typography */
+h1 { font-size: 50px; color: #fff; }
+p { color: #ccc; font-size: 1rem; }
+
+/* Dashboard Cards */
+.dashboard {
+  padding: 1rem;
+  margin: 1.5rem auto;
+  border-radius: 16px;
+  background: rgba(30, 30, 30, 0.5); /* 50% transparency */
+  backdrop-filter: blur(12px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.3);
+  transition: all 0.4s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  
+}
+
+.dashboard:hover {
+  background: rgba(40, 40, 40, 0.6);
+  transform: translateY(-5px) scale(1.02);
+  border-color: rgba(255, 255, 255, 0.2);
+}
+
+/* App Description Static Style */
+.app-details-static {
+  opacity: 1;
+  text-align: center;
+  padding: 1rem;
+  margin-top: 1rem;
+  background: rgba(0, 0, 0, 0.2);
+  border-radius: 8px;
+}
+
+/* Footer */
+.footer {
+  padding: 1rem;
+  font-size: 0.9rem;
+  background: rgba(30,30,30,0.85);
+}
+
+/* Image */
+.imglogo {
+  width: 80px;
+  height: auto;
+  display: flex;
+  align-items: center;
+  transition: transform 0.3s ease;
+}
+
+.imglogo:hover { transform: scale(1.1); }
+
+/* Dark Mode */
+@media (prefers-color-scheme: dark) {
+  .navbar, .dashboard, .footer { background: rgba(20, 20, 20, 0.45); }
+  .btn { background: #222; }
+  .smash { background-color: #111; }
+}
+
+.hello{
+  background: rgba(30, 30, 30, 0.5); 
+  
+}
+
+@keyframes typing {
+  from { width: 0 }
+  to { width: 100% }
+}
+@keyframes blink-caret {
+  from, to { border-color: transparent }
+  50% { border-color: white; }
+}
+
+.whynot h1{
+  overflow: hidden; 
+  white-space: nowrap; 
+
+  border-right: .15em solid white; 
+
+  letter-spacing: .15em; 
+  font-family: monospace; 
+  margin: 0 auto;
+  animation: 
+  typing 5.5s steps(17, end),blink-caret .75s step-end infinite;
+}
+.theguy{
+  text-decoration: none;
+  padding:50px;
+  opacity:40px;
+  background-color: #262626;
+  
 }
